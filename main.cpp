@@ -4,6 +4,7 @@
 #include <fstream>
 #include<vector>
 #include"MinHeap.h"
+#include "BinarySearchTree.h"
 #include<string>
 #include"MaxHeap.h"
 using namespace std;
@@ -23,6 +24,25 @@ void Load(vector<Student>& vec) {
         getline(file, s);
         st.department = s;
         vec.push_back(st);
+    }
+
+}
+
+void Load() {
+    ifstream file("Student.txt");
+    string s;
+    getline(file, s);
+    while (!file.eof()) {
+        Student st;
+        getline(file, s);
+        st.id = stoi(s);
+        getline(file, s);
+        st.name = s;
+        getline(file, s);
+        st.gpa = stof(s);
+        getline(file, s);
+        st.department = s;
+        m[st.id] = st;
     }
 
 }
